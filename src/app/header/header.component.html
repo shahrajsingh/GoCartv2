@@ -1,1 +1,25 @@
+<div class="wrapper">
+  <div class="brand-name">GoCart</div>
+  <div class="search-bar"><app-search></app-search></div>
+  <div class="misc">
+    <button mat-button class="btn" *ngIf="isAuthenticated">Logout</button>
+    <button mat-button class="btn" *ngIf="!isAuthenticated">Login</button>
+    <div
+      class="sell-btn"
+      matTooltip="Please Login"
+      [matTooltipDisabled]="isAuthenticated"
+    >
+      <button mat-button class="btn" [disabled]="!isAuthenticated">Sell</button>
+    </div>
 
+    <button mat-button class="btn">
+      <mat-icon
+        style="font-size: 28px"
+        matBadge="15"
+        matBadgeColor="warn"
+        matBadgeSize="small"
+        >shopping_cart</mat-icon
+      >&nbsp;Cart
+    </button>
+  </div>
+</div>

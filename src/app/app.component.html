@@ -1,7 +1,12 @@
-<mat-sidenav-container>
+<mat-sidenav-container style="width: 100%; scroll-behavior: smooth">
   <mat-sidenav> abc </mat-sidenav>
   <mat-sidenav-content class="side-nav-content">
-    <mat-toolbar class="header" color="accent"></mat-toolbar>
-    <div class="row2">abc</div>
+    <mat-toolbar class="header" color="primary">
+      <button mat-icon-button class="header-menu-button">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <app-header></app-header>
+    </mat-toolbar>
+    <app-content class="row2"></app-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

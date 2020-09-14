@@ -1,0 +1,61 @@
+<div class="banner"></div>
+<div class="option-grid">
+  <!--langing page cards start-->
+  <mat-grid-list
+    [cols]="colSize"
+    gutterSize="1rem"
+    rowHeight="100%"
+    class="parent-grid"
+  >
+    <mat-grid-tile class="parent-grid-tile" *ngIf="colSize >= 1"
+      ><mat-card class="option-card"
+        ><div class="wrapper">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+          </div>
+          <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+          </div>
+        </div> </mat-card
+    ></mat-grid-tile>
+    <mat-grid-tile class="parent-grid-tile" *ngIf="colSize >= 2"
+      ><mat-card class="option-card"
+        ><div class="wrapper">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+          </div>
+          <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+          </div></div></mat-card
+    ></mat-grid-tile>
+    <mat-grid-tile class="parent-grid-tile" *ngIf="colSize >= 3"
+      ><mat-card class="option-card"
+        ><div class="wrapper">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+          </div>
+          <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+          </div></div></mat-card
+    ></mat-grid-tile>
+    <mat-grid-tile class="parent-grid-tile" *ngIf="colSize >= 4"
+      ><mat-card class="option-card">
+        <button mat-raised-button color="primary">
+          Sign in to your account
+        </button>
+        <button mat-raised-button color="primary">
+          Account Settings
+        </button></mat-card
+      ></mat-grid-tile
+    >
+  </mat-grid-list>
+  <!--landing page cards end-->
+</div>
+
+<div class="deals"></div>
