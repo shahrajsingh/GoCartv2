@@ -1,6 +1,11 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { fromEvent, Observable, Subscription } from 'rxjs';
+import { Banner } from '../models/banner.model';
+import { DoD } from '../models/Dealsoftheday.model';
+import { Discount } from '../models/discount.model';
+import { RecentProduct } from '../models/recentProduct.model';
+import { ShopCategory } from '../models/shopCateogry.model';
 
 @Component({
   selector: 'app-content',
@@ -15,6 +20,29 @@ export class ContentComponent implements OnInit {
   desktopQuery: MediaQueryList;
   resizeObservable: Observable<Event>;
   resizeSubscription: Subscription;
+  producbyCateogry: ShopCategory[] = [];
+  shopByDiscount: Discount[] = [];
+  recentProducts: RecentProduct[] = [
+    {
+      img: 'https://miro.medium.com/max/875/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg',
+      name: 'wwerw',
+    },
+    {
+      img: 'https://miro.medium.com/max/875/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg',
+      name: 'wwerw',
+    },
+    {
+      img: 'https://miro.medium.com/max/875/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg',
+      name: 'wwerw',
+    },
+    {
+      img: 'https://miro.medium.com/max/875/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg',
+      name: 'wwerw',
+    },
+  ];
+  isAuthenticated: boolean = false;
+  DealsofTheDay: DoD[] = [];
+  bannerads: Banner[] = [];
   constructor(media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 686px)');
     this.tabQuery = media.matchMedia('(max-width: 1024px)');
