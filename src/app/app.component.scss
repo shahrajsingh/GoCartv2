@@ -27,6 +27,12 @@ app-header {
   flex-grow: 1;
   flex-flow: column;
 }
+.app-container {
+  margin-top: 56px;
+  display: flex;
+  flex-flow: column;
+  padding: 8px;
+}
 .row2 {
   display: flex;
   flex-flow: column;

@@ -1,9 +1,11 @@
-<div class="banner"></div>
+<div class="banner">
+  <app-carousal [slides]="slides"></app-carousal>
+</div>
 <div class="option-grid">
   <!--langing page cards start-->
   <mat-grid-list
     [cols]="colSize"
-    gutterSize="1rem"
+    gutterSize="0.5rem"
     rowHeight="100%"
     class="parent-grid"
   >
@@ -11,164 +13,41 @@
       ><mat-card class="option-card"
         ><mat-card-title style="margin-top: 8px"
           ><mat-card-header>Continue Shopping</mat-card-header></mat-card-title
-        >
-        <div class="wrapper">
-          <div class="row">
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[0].img }}" 
-                  alt="{{ recentProducts[0].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[0].name }}</div>
-            </div>
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[1].img }}"
-                  alt="{{ recentProducts[1].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[1].name }}</div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[2].img }}"
-                  alt="{{ recentProducts[2].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[2].name }}</div>
-            </div>
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[3].img }}"
-                  alt="{{ recentProducts[3].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[3].name }}</div>
-            </div>
-          </div>
-        </div>
-      </mat-card></mat-grid-tile
-    >
+        ><app-card [arr]="recentProducts"></app-card></mat-card
+    ></mat-grid-tile>
     <mat-grid-tile class="parent-grid-tile" *ngIf="colSize >= 2"
       ><mat-card class="option-card"
         ><mat-card-title style="margin-top: 8px"
-          ><mat-card-header>Shop by Discount</mat-card-header></mat-card-title
-        >
-        <div class="wrapper">
-          <div class="row">
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[0].img }}"
-                  alt="{{ recentProducts[0].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[0].name }}</div>
-            </div>
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[0].img }}"
-                  alt="{{ recentProducts[0].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[0].name }}</div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[0].img }}"
-                  alt="{{ recentProducts[0].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[0].name }}</div>
-            </div>
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[0].img }}"
-                  alt="{{ recentProducts[0].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[0].name }}</div>
-            </div>
-          </div>
-        </div></mat-card
-      ></mat-grid-tile
-    >
+          ><mat-card-header>Shop By Cateogry</mat-card-header></mat-card-title
+        ><app-card [arr]="producbyCateogry"></app-card></mat-card
+    ></mat-grid-tile>
     <mat-grid-tile class="parent-grid-tile" *ngIf="colSize >= 3"
       ><mat-card class="option-card"
         ><mat-card-title style="margin-top: 8px"
-          ><mat-card-header>Shop by Category</mat-card-header></mat-card-title
-        >
-        <div class="wrapper">
-          <div class="row">
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[0].img }}"
-                  alt="{{ recentProducts[0].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[0].name }}</div>
-            </div>
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[0].img }}"
-                  alt="{{ recentProducts[0].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[0].name }}</div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[0].img }}"
-                  alt="{{ recentProducts[0].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[0].name }}</div>
-            </div>
-            <div class="col">
-              <div class="img-container">
-                <img
-                  src="{{ recentProducts[0].img }}"
-                  alt="{{ recentProducts[0].name }}"
-                />
-              </div>
-              <div class="productName">{{ recentProducts[0].name }}</div>
-            </div>
-          </div>
-        </div></mat-card
-      ></mat-grid-tile
-    >
+          ><mat-card-header>Shop by Discounts</mat-card-header></mat-card-title
+        ><app-card [arr]="shopByDiscount"></app-card></mat-card
+    ></mat-grid-tile>
     <mat-grid-tile class="parent-grid-tile" *ngIf="colSize >= 4"
       ><mat-card class="option-card"
         ><mat-card-title style="margin-top: 8px"
           ><mat-card-header>Account Details</mat-card-header></mat-card-title
         >
-        <button mat-raised-button color="primary">
-          Sign in to your account
-        </button>
-        <button mat-raised-button color="primary">
-          Account Settings
-        </button></mat-card
-      ></mat-grid-tile
+        <mat-list>
+          <mat-list-item>
+            <button mat-raised-button color="primary">
+              Sign in to your account
+            </button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-raised-button color="primary">Account Settings</button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card></mat-grid-tile
     >
   </mat-grid-list>
   <!--landing page cards end-->
 </div>
 
-<div class="deals"></div>
+<div class="deals">
+  <app-hotdeals [hotdeals]="DealsofTheDay"></app-hotdeals>
+</div>

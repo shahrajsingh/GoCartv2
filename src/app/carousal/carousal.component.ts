@@ -29,7 +29,11 @@ export class CarousalComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.showSlides();
+    }, 3000);
+  }
   onPreviousClick() {
     const previous = this.currentSlide - 1;
     this.currentSlide = previous < 0 ? this.slides.length - 1 : previous;
@@ -42,5 +46,15 @@ export class CarousalComponent implements OnInit {
     this.currentSlide = next === this.slides.length ? 0 : next;
 
     console.log('next clicked, new current slide is: ', this.currentSlide);
+  }
+  showSlides() {
+    if (this.currentSlide >= 3) {
+      this.currentSlide = 0;
+    } else {
+      this.currentSlide++;
+    }
+    setTimeout(() => {
+      this.showSlides();
+    }, 3000);
   }
 }

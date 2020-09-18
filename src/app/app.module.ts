@@ -49,6 +49,8 @@ import { ProductDetailsComponent } from './product/product-details/product-detai
 import { OrdersComponent } from './orders/orders.component';
 import { CartComponent } from './cart/cart.component';
 import { CarousalComponent } from './carousal/carousal.component';
+import { HotdealsComponent } from './hotdeals/hotdeals.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { CarousalComponent } from './carousal/carousal.component';
     OrdersComponent,
     CartComponent,
     CarousalComponent,
+    HotdealsComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
