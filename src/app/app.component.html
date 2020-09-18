@@ -7,19 +7,25 @@
     flex-flow: column;
   "
 >
-  <mat-sidenav #sidenav mode="over"> abc </mat-sidenav>
+  <mat-sidenav #sidenav mode="over"> <app-sidenav></app-sidenav> </mat-sidenav>
   <mat-sidenav-content class="side-nav-content">
-    <mat-toolbar class="header" color="primary">
-      <button
-        mat-icon-button
-        class="header-menu-button"
-        (click)="sidenav.toggle()"
+    <div class="header-wrapper">
+      <mat-toolbar class="header" color="primary">
+        <button
+          mat-icon-button
+          class="header-menu-button"
+          (click)="sidenav.toggle()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <app-header></app-header>
+      </mat-toolbar>
+      <mat-toolbar color="primary" class="mobile-search-bar"
+        ><app-search style="width: 80%"></app-search
+        ><button class="mobile-search-button">Search</button></mat-toolbar
       >
-        <mat-icon>menu</mat-icon>
-      </button>
-      <app-header></app-header>
-    </mat-toolbar>
-    <mat-toolbar color="primary" class="mobile-search-bar"></mat-toolbar>
+    </div>
+
     <div class="app-container">
       <router-outlet class="row2"></router-outlet>
     </div>

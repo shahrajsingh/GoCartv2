@@ -1,5 +1,5 @@
 .searchWrapper {
-  max-width: 70%;
+  width: 70%;
   padding: 0px 4px 0px 4px;
   background-color: white;
   height: 38px;
@@ -29,4 +29,9 @@ input:focus {
 }
 mat-icon {
   padding-bottom: 3px;
+}
+@media screen and (max-width: 767px) {
+  .searchWrapper {
+    width: 100%;
+  }
 }

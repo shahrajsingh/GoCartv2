@@ -13,6 +13,7 @@
   text-align: center;
   text-shadow: 2px 2px rgba($color: #000000, $alpha: 0.4);
   font-weight: 700;
+  margin-left: 1rem;
 }
 .search-bar {
   display: flex;
@@ -46,7 +47,7 @@ mat-icon {
     display: none;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 765px) {
   .search-bar {
     display: none;
   }

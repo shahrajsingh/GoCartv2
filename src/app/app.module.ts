@@ -37,6 +37,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatRippleModule } from '@angular/material/core';
 
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
@@ -109,6 +110,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatSortModule,
     MatPaginatorModule,
     MatBadgeModule,
+    MatRippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
