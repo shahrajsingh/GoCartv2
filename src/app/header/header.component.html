@@ -4,22 +4,27 @@
   <div class="misc">
     <button mat-button class="btn" *ngIf="isAuthenticated">Logout</button>
     <button mat-button class="btn" *ngIf="!isAuthenticated">Login</button>
-    <div
-      class="sell-btn"
-      matTooltip="Please Login"
-      [matTooltipDisabled]="isAuthenticated"
-    >
-      <button mat-button class="btn" [disabled]="!isAuthenticated">Sell</button>
+    <div class="sell-btn">
+      <button mat-button class="btn" *ngIf="isAuthenticated">Sell</button>
+      <button
+        mat-button
+        style="color: rgb(114, 105, 105)"
+        class="btn"
+        *ngIf="!isAuthenticated"
+        (click)="openSnackBar()"
+      >
+        Sell
+      </button>
     </div>
 
-    <button mat-button class="btn">
+    <button mat-button class="btn cart">
       <mat-icon
         style="font-size: 28px"
         matBadge="15"
         matBadgeColor="warn"
         matBadgeSize="small"
         >shopping_cart</mat-icon
-      >&nbsp;Cart
+      ><a class="temp">&nbsp;Cart</a>
     </button>
   </div>
 </div>
