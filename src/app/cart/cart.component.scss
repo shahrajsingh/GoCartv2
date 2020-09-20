@@ -1,0 +1,52 @@
+.cart-container {
+  display: flex;
+  width: 100%;
+}
+.items-panel {
+  width: 60%;
+}
+.bill-panel {
+  width: 40%;
+  padding: 0rem 1rem 0rem 1rem;
+}
+.bill-card {
+}
+.item-image,
+.item-details,
+.item-price {
+  padding: 12px 0px 12px 0px;
+}
+.items {
+  display: flex;
+}
+img {
+  height: 100%;
+  width: 100%;
+}
+.item-image {
+  height: 100px;
+  width: 100px;
+}
+.item-details {
+  padding: 8px 8px 16px 8px;
+  display: flex;
+  flex-flow: column;
+}
+.item-name {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  flex-grow: 1;
+}
+@media screen and (max-width: 600px) {
+  .cart-container {
+    display: block;
+  }
+  .items-panel {
+    width: 100%;
+  }
+  .bill-panel {
+    width: 100%;
+    padding: 1rem 0rem 0rem 0rem;
+  }
+}

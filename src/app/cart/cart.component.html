@@ -1,1 +1,33 @@
-<p>cart works!</p>
+<div class="cart-container">
+  <div class="items-panel">
+    <mat-card
+      ><mat-card-header
+        ><mat-card-title>My Cart</mat-card-title></mat-card-header
+      >
+      <div class="items" *ngFor="let i of DealsofTheDay">
+        <mat-divider></mat-divider>
+        <div class="item-image"><img [src]="i.img" /></div>
+        <div class="item-details">
+          <div class="item-name">{{ i.name }}</div>
+          <div class="item-button">
+            <button mat-stroked-button color="warn">
+              <mat-icon>delete</mat-icon>Remove
+            </button>
+          </div>
+        </div>
+        <div class="item-price"></div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="bill-panel">
+    <mat-card class="bill-card"
+      ><mat-card-header
+        ><mat-card-title>Price Details</mat-card-title></mat-card-header
+      ><mat-divider></mat-divider>
+      <div class="items-price"></div>
+      <div class="dilvery-charge"></div>
+      <mat-divider></mat-divider>
+      <div class="total">Total Price</div>
+    </mat-card>
+  </div>
+</div>

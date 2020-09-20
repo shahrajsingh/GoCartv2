@@ -1,1 +1,52 @@
-<p>signup works!</p>
+<!--
+
+-->
+<div class="signup-container">
+  <div class="brand">
+    <h1 class="brand-name">GoCart</h1>
+  </div>
+  <div class="signupcontents">
+    <div class="signupbanner"><h2 class="heading">Signup</h2></div>
+    <div class="signupcredentials">
+      <form
+        #signupForm="ngForm"
+        name="signupForm"
+        (submit)="Signup(signupForm)"
+      >
+        <mat-form-field appearance="outline" class="formfield">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            name="username"
+            #username="ngModel"
+            ngModel
+            required
+            minlength="3"
+            type="text"
+            autocomplete="off"
+            placeholder="e.g:- JohnDoe"
+          />
+          <mat-error *ngIf="username.invalid">Username is Required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="formfield">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            name="Password"
+            #Password="ngModel"
+            ngModel
+            type="password"
+            required
+            minlength="3"
+            placeholder="e.g:- 12345678"
+          />
+          <mat-error *ngIf="Password.invalid">Password is Required</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="btn">Signup</button>
+        <br /><br />
+        <mat-divider></mat-divider>
+        <h3 class="subheading">Don't have a GoCart account?</h3>
+      </form>
+    </div>
+  </div>
+</div>

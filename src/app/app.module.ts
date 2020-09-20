@@ -113,6 +113,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatRippleModule,
   ],
   providers: [],
+  entryComponents: [LoginComponent, SignupComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

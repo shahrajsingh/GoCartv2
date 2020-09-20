@@ -7,7 +7,12 @@
     flex-flow: column;
   "
 >
-  <mat-sidenav #sidenav mode="over"> <app-sidenav></app-sidenav> </mat-sidenav>
+  <mat-sidenav #sidenav mode="over" style="position: fixed; height: 100%"
+    ><button mat-icon-button class="tempr" (click)="sidenav.toggle()">
+      <mat-icon class="tempr-ico">close</mat-icon>
+    </button>
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
   <mat-sidenav-content class="side-nav-content">
     <div class="header-wrapper">
       <mat-toolbar class="header" color="primary">
@@ -16,7 +21,7 @@
           class="header-menu-button"
           (click)="sidenav.toggle()"
         >
-          <mat-icon>menu</mat-icon>
+          <mat-icon class="header-menu-button-icon">menu</mat-icon>
         </button>
         <app-header></app-header>
       </mat-toolbar>

@@ -3,7 +3,14 @@
   <div class="search-bar"><app-search></app-search></div>
   <div class="misc">
     <button mat-button class="btn" *ngIf="isAuthenticated">Logout</button>
-    <button mat-button class="btn" *ngIf="!isAuthenticated">Login</button>
+    <button
+      mat-button
+      class="btn"
+      *ngIf="!isAuthenticated"
+      (click)="openDialog()"
+    >
+      Login
+    </button>
     <div class="sell-btn">
       <button mat-button class="btn" *ngIf="isAuthenticated">Sell</button>
       <button
@@ -17,7 +24,7 @@
       </button>
     </div>
 
-    <button mat-button class="btn cart">
+    <button mat-button class="btn cart" routerLink="/viewCart">
       <mat-icon
         style="font-size: 28px"
         matBadge="15"
