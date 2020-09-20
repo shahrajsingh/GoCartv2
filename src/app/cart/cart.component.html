@@ -4,18 +4,72 @@
       ><mat-card-header
         ><mat-card-title>My Cart</mat-card-title></mat-card-header
       >
-      <div class="items" *ngFor="let i of DealsofTheDay">
+      <div class="items" *ngFor="let i of DealsofTheDay; let j = index">
         <mat-divider></mat-divider>
         <div class="item-image"><img [src]="i.img" /></div>
         <div class="item-details">
           <div class="item-name">{{ i.name }}</div>
           <div class="item-button">
-            <button mat-stroked-button color="warn">
+            <div class="item-quantity">
+              <button mat-icon-button (click)="decreaseQuantity(j)">
+                <mat-icon>remove</mat-icon>
+              </button>
+              <a class="quantity">{{ i.quantity }}</a>
+              <button mat-icon-button (click)="increaseQuantity(j)">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+
+            <button
+              mat-stroked-button
+              color="warn"
+              class="remove-btn"
+              (click)="deleteItem()"
+            >
               <mat-icon>delete</mat-icon>Remove
             </button>
           </div>
         </div>
-        <div class="item-price"></div>
+        <div class="item-price">
+          <a class="price-tag">Price:</a> ${{ i.price }}
+          <a style="font-size: 14px">/piece</a>
+        </div>
+      </div>
+      <div class="items-mobile" *ngFor="let i of DealsofTheDay; let j = index">
+        <div class="items-mobile-row">
+          <div class="items-img-mobile">
+            <img [src]="i.img" />
+          </div>
+          <div class="item-name-mobile">{{ i.name }}</div>
+          <div class="item-price-mobile">
+            <a class="price-tag-mobile">Price:</a> ${{ i.price }}
+            <a style="font-size: 14px">/piece</a>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="items-button-row">
+          <div class="mobile-quantity">
+            <button mat-icon-button (click)="decreaseQuantity(j)">
+              <mat-icon>remove</mat-icon>
+            </button>
+            <a class="quantity">{{ i.quantity }}</a>
+            <button mat-icon-button (click)="increaseQuantity(j)">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          <mat-divider vertical="true"></mat-divider>
+          <div class="mobile-remove">
+            <button
+              mat-raised-button
+              color="warn"
+              class="remove-btn"
+              (click)="deleteItem()"
+            >
+              <mat-icon>delete</mat-icon>Remove
+            </button>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
       </div>
     </mat-card>
   </div>
@@ -27,7 +81,7 @@
       <div class="items-price"></div>
       <div class="dilvery-charge"></div>
       <mat-divider></mat-divider>
-      <div class="total">Total Price</div>
+      <div class="total"></div>
     </mat-card>
   </div>
 </div>
