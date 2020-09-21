@@ -54,11 +54,19 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
 }
+.signuploginbtn {
+  width: 69%;
+  margin-left: 31%;
+}
 @media screen and (max-width: 600px) {
   .loginbanner {
     display: none;
   }
   .logincredentials {
     width: 100%;
+  }
+  .signuploginbtn {
+    width: 100%;
+    margin-left: 0px;
   }
 }
