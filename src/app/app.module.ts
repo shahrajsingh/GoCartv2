@@ -55,6 +55,8 @@ import { CardComponent } from './card/card.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { PriceDetailsComponent } from './price-details/price-details.component';
+import { OrdersMobileComponent } from './orders-mobile/orders-mobile.component';
+import { PlaceOrderComponent } from './place-order/place-order.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +77,8 @@ import { PriceDetailsComponent } from './price-details/price-details.component';
     SidenavComponent,
     OrderSummaryComponent,
     PriceDetailsComponent,
+    OrdersMobileComponent,
+    PlaceOrderComponent,
   ],
   imports: [
     BrowserModule,
