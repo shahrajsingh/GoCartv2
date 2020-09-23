@@ -1,1 +1,40 @@
-<p>create-product works!</p>
+<div class="product-create-container">
+  <mat-card>
+    <form [formGroup]="form" (submit)="onCreateProduct()">
+      <mat-form-field appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="ProductName"
+          placeholder="Product Name"
+        />
+        <mat-error *ngIf="form.get('ProductName').invalid"
+          >Product Name is Required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Product Category</mat-label>
+        <mat-select formControlName="Category" required>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let que of categories" [value]="que">
+            {{ que }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Product Description</mat-label>
+        <input
+          matInput
+          formControlName="Discription"
+          type="text"
+          required
+          placeholder="e.g:- Luxry Phone"
+        />
+        <mat-error *ngIf="form.get('Discription').invalid"
+          >Product Description is Required</mat-error
+        >
+      </mat-form-field>
+    </form>
+  </mat-card>
+</div>

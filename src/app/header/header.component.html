@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="brand-name">GoCart</div>
+  <div class="brand-name" routerLink="/">GoCart</div>
   <div class="search-bar"><app-search></app-search></div>
   <div class="misc">
     <button mat-button class="btn" *ngIf="isAuthenticated">Logout</button>
@@ -12,7 +12,14 @@
       Login
     </button>
     <div class="sell-btn">
-      <button mat-button class="btn" *ngIf="isAuthenticated">Sell</button>
+      <button
+        mat-button
+        class="btn"
+        *ngIf="isAuthenticated"
+        routerLink="sellProduct"
+      >
+        Sell
+      </button>
       <button
         mat-button
         style="color: rgb(114, 105, 105)"

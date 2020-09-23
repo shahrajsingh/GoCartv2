@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -13,7 +14,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
-import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
@@ -58,6 +58,8 @@ import { PriceDetailsComponent } from './price-details/price-details.component';
 import { OrdersMobileComponent } from './orders-mobile/orders-mobile.component';
 import { PlaceOrderComponent } from './place-order/place-order.component';
 
+import { AccountComponent } from './account/account.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +81,8 @@ import { PlaceOrderComponent } from './place-order/place-order.component';
     PriceDetailsComponent,
     OrdersMobileComponent,
     PlaceOrderComponent,
+
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
