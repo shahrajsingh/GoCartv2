@@ -7,7 +7,7 @@ import { Product } from 'src/app/models/Product.model';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  colSize = 1;
+  colSize = 4;
   Products: Product[] = [
     {
       name: 'phone',
