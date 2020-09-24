@@ -1,0 +1,18 @@
+.Product-container {
+  display: flex;
+}
+.Product {
+  width: 350px;
+  display: block;
+  border: 1px solid red;
+  height: 450px;
+}
+.Product-image {
+  height: 250px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+img {
+  height: 250px;
+  width: 250px;
+}
