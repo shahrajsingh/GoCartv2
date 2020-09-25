@@ -1,32 +1,10 @@
-<div class="Product-container"></div>
-<mat-grid-list
-  gutterSize="8px"
-  class="Product-Grid"
-  rowHeight="450px"
-  [cols]="colSize"
->
-  <mat-grid-tile *ngFor="let i of Products" class="Product-tile">
-    <div class="Product">
-      <div class="Product-image">
-        <img [src]="i.image" alt="{{ i.name }}" />
-      </div>
-      <div class="Product-details">
-        <div class="ratings"></div>
-        <h3 class="Product-name">
-          {{ i.name }}
-        </h3>
-        <h3 class="Product-Price">${{ i.price }}</h3>
-      </div>
-      <div class="toolbar">
-        <div class="AddtoCart">
-          <button mat-raised-button>
-            <mat-icon>shopping_cart</mat-icon><a class="cartbtn">Add to cart</a>
-          </button>
-          <button mat-raised-button>
-            <mat-icon>shopping_cart</mat-icon><a class="cartbtn">Buy Now</a>
-          </button>
-        </div>
-      </div>
+<div class="Product-container">
+  <div class="Product" *ngFor="let i of Products">
+    <div class="Product-image"><img [src]="i.image" alt="{{ i.name }}" /></div>
+    <div class="Product-details">
+      <h3 class="Product-name">
+        {{ i.name }}
+      </h3>
     </div>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>
