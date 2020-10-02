@@ -7,4 +7,5 @@ export interface Product {
   sellerId: string;
   description: string;
   image: string;
+  rating: number;
 }

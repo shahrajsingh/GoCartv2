@@ -59,6 +59,8 @@ import { OrdersMobileComponent } from './orders-mobile/orders-mobile.component';
 import { PlaceOrderComponent } from './place-order/place-order.component';
 
 import { AccountComponent } from './account/account.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
+import { ProductCardComponent } from './product/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,10 @@ import { AccountComponent } from './account/account.component';
     PlaceOrderComponent,
 
     AccountComponent,
+
+    StarRatingComponent,
+
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
