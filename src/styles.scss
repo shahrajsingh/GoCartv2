@@ -10,6 +10,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 /**
 * Generated theme by Material Theme Generator
 * https://materialtheme.arcsine.dev
@@ -183,19 +184,19 @@ $mat-primary: (
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 body {
-  --accent-color: #448aff;
-  --accent-lighter-color: #c7dcff;
-  --accent-darker-color: #2d6dff;
-  --text-accent-color: #{$dark-primary-text};
+  --accent-color: #bb6e26;
+  --accent-lighter-color: #ebd4be;
+  --accent-darker-color: #a45117;
+  --text-accent-color: #{$light-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$light-primary-text};
 }
 
 $mat-accent: (
-  main: #448aff,
-  lighter: #c7dcff,
-  darker: #2d6dff,
-  200: #448aff,
+  main: #bb6e26,
+  lighter: #ebd4be,
+  darker: #a45117,
+  200: #bb6e26,
   // For slide toggle,
   contrast:
     (

@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-star-rating',
   templateUrl: './star-rating.component.html',
-  styleUrls: ['./star-rating.component.scss']
+  styleUrls: ['./star-rating.component.scss'],
 })
 export class StarRatingComponent implements OnInit {
+  @Input() rating: number;
+  @Input() align: string;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
