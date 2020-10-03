@@ -20,3 +20,14 @@ input[type="file"] {
 .image-preview img {
   height: 100%;
 }
+.vertical {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .vertical {
+    display: initial;
+  }
+  .horizontal {
+    display: none;
+  }
+}

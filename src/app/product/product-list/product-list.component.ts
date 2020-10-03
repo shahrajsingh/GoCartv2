@@ -1,4 +1,3 @@
-import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
@@ -12,15 +11,12 @@ import { Product } from 'src/app/models/Product.model';
 })
 export class ProductListComponent implements OnInit {
   colSize = 5;
-  mobileQuery: MediaQueryList;
-  tabQuery: MediaQueryList;
-  mdpidesktop: MediaQueryList;
-  desktopQuery: MediaQueryList;
+
   resizeObservable: Observable<Event>;
   resizeSubscription: Subscription;
   Products: Product[] = [
     {
-      name: 'Product 1',
+      name: 'Samsung Galaxy S9 Plus (Midnight Black, 64 GB)  (6 GB RAM)',
       category: 'electronics',
       price: 1000,
       sellerName: 'shahraj',
@@ -68,33 +64,27 @@ export class ProductListComponent implements OnInit {
       rating: 4.5,
     },
   ];
-  constructor(media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 686px)');
-    this.tabQuery = media.matchMedia('(max-width: 1024px)');
-    this.mdpidesktop = media.matchMedia('(max-width: 1366px');
-    this.desktopQuery = media.matchMedia('(min-width: 1280px)');
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    if (this.mobileQuery.matches) {
-      this.colSize = 2;
-    } else if (this.tabQuery.matches) {
-      this.colSize = 3;
-    } else if (this.mdpidesktop.matches) {
-      this.colSize = 4;
+    const x = window.innerWidth;
+    const str: string = '' + x / 250;
+    console.log(str);
+    if (x < 420) {
+      this.colSize = parseInt(str) + 1;
     } else {
-      this.colSize = 5;
+      this.colSize = parseInt(str);
     }
+
     this.resizeObservable = fromEvent(window, 'resize');
     this.resizeSubscription = this.resizeObservable.subscribe((evt) => {
-      if (window.innerWidth <= 686) {
-        this.colSize = 2;
-      } else if (window.innerWidth > 686 && window.innerWidth <= 1024) {
-        this.colSize = 3;
-      } else if (window.innerWidth > 1024 && window.innerWidth <= 1366) {
-        this.colSize = 4;
+      const x = window.innerWidth;
+      const str: string = '' + x / 250;
+      console.log(str);
+      if (x < 420) {
+        this.colSize = parseInt(str) + 1;
       } else {
-        this.colSize = 5;
+        this.colSize = parseInt(str);
       }
     });
   }

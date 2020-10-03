@@ -8,11 +8,24 @@
   <mat-list-item matRipple class="shop-by-category-p"
     >Shop by Category</mat-list-item
   >
-  <mat-list-item matRipple class="sidenav-list-item" routerLink="/products"
+  <mat-list-item
+    matRipple
+    class="sidenav-list-item"
+    [routerLink]="['/products', 'electronics']"
     >Electronics</mat-list-item
   >
-  <mat-list-item matRipple class="sidenav-list-item">Home Decor</mat-list-item>
-  <mat-list-item matRipple class="sidenav-list-item">Education</mat-list-item>
+  <mat-list-item
+    matRipple
+    class="sidenav-list-item"
+    [routerLink]="['/products', 'homedecor']"
+    >Home Decor</mat-list-item
+  >
+  <mat-list-item
+    matRipple
+    class="sidenav-list-item"
+    [routerLink]="['/products', 'education']"
+    >Education</mat-list-item
+  >
   <mat-divider></mat-divider>
   <mat-list-item class="shop-by-category-p">Help & Settings</mat-list-item>
   <mat-list-item matRipple class="sidenav-list-item"

@@ -2,6 +2,8 @@
   <div class="images">
     <img class="image" [src]="product.image" />
   </div>
+  <mat-divider vertical="true"></mat-divider>
+
   <div class="product-details">
     <h1>{{ product.name }}</h1>
     <app-star-rating
@@ -35,7 +37,9 @@
       <p>Product Description</p>
       {{ product.description }}
     </div>
+    <mat-divider style="margin-bottom: 8px"></mat-divider>
   </div>
+  <mat-divider style="margin-right: 8px" vertical="true"></mat-divider>
 
   <div class="options">
     <mat-card>
@@ -54,7 +58,7 @@
       <mat-divider style="margin: 4px 0px 0px 0px"> </mat-divider>
       <br /><br />
       <button class="btn" mat-button (click)="favorite()">
-        <a id="atw">Add to Wishlist </a>
+        <a id="atw">Wishlist </a>
         <mat-icon id="favorite">favorite_border</mat-icon>
       </button>
     </mat-card>

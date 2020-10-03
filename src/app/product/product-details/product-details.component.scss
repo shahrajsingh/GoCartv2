@@ -12,7 +12,7 @@
   object-fit: contain;
 }
 .product-details {
-  width: 45%;
+  width: 43%;
 
   padding: 8px;
 }
@@ -72,6 +72,7 @@
   height: 40px;
   font-size: 18px;
 }
+
 input {
   width: 25px;
   border-radius: 4px;
@@ -144,5 +145,8 @@ input {
     font-weight: 500;
     height: 44px;
     font-size: 20px;
+  }
+  .vertical-divider {
+    display: none;
   }
 }

@@ -9,7 +9,7 @@ import { Product } from 'src/app/models/Product.model';
 export class ProductDetailsComponent implements OnInit {
   quantity: number = 1;
   product: Product = {
-    name: 'Product 1',
+    name: 'Samsung Galaxy S9 Plus (Midnight Black, 64 GB)  (6 GB RAM)',
     category: 'electronics',
     price: 1000,
     sellerName: 'shahraj',
@@ -26,6 +26,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {}
   favorite() {
     document.getElementById('favorite').innerHTML = 'favorite';
-    document.getElementById('atw').innerHTML = 'Wished&nbsp;';
+    document.getElementById('atw').innerHTML = 'Wishlisted&nbsp;';
+    document.getElementById('favorite').style.color = '#FF3E6C';
   }
 }

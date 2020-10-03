@@ -1,6 +1,7 @@
 import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AccountComponent } from './account/account.component';
 import { CartComponent } from './cart/cart.component';
 import { ContentComponent } from './content/content.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -13,8 +14,11 @@ const routes: Routes = [
   { path: 'viewCart', component: CartComponent },
   { path: 'viewOrders', component: OrdersComponent },
   { path: 'sellProduct', component: CreateProductComponent },
-  { path: 'products', component: ProductListComponent },
+  { path: 'products/:electronics', component: ProductListComponent },
+  { path: 'products/:homedecor', component: ProductListComponent },
+  { path: 'products/:education', component: ProductListComponent },
   { path: 'details/:productid', component: ProductDetailsComponent },
+  { path: 'accountdetails/:id', component: AccountComponent },
 ];
 
 @NgModule({
