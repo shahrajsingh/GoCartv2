@@ -1,1 +1,119 @@
-<div class="account-container"></div>
+<div class="account-container">
+  <div class="left">
+    <mat-card>
+      <mat-card-header>
+        <img [src]="user.Image" mat-card-avatar alt="img" class="avatar" />
+        <mat-card-subtitle>Hello,</mat-card-subtitle>
+        <mat-card-title
+          >{{ user.FirstName }} {{ user.LastName }}</mat-card-title
+        >
+      </mat-card-header>
+      <mat-selection-list [multiple]="false" class="list">
+        <mat-list-option selected="true">Profile Information</mat-list-option>
+        <mat-list-option routerLink="/viewOrders">Your Orders</mat-list-option>
+        <mat-list-option>My chats</mat-list-option>
+        <mat-divider></mat-divider>
+        <mat-list-option style="margin: 23px 0px 0px 0px">
+          <div>
+            <mat-icon style="font-size: 18px; position: absolute; top: 30%"
+              >power_settings_new</mat-icon
+            ><a style="font-size: 18px; margin-left: 22px">Logout</a>
+          </div>
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-card>
+  </div>
+  <div class="right">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Personal Information</mat-card-title>
+        <button mat-button>
+          <mat-icon style="font-size: 18px">edit</mat-icon>Edit
+        </button>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <form
+        #personalinfo="ngForm"
+        name="personalinfo"
+        class="personalinfo"
+        (submit)="personalinfoform(personalinfo)"
+      >
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            name="firstname"
+            placeholder="FirstName"
+            ngModel
+            autocomplete="off"
+            #firstname="ngModel"
+            minlength="3"
+            required
+          />
+          <mat-error *ngIf="firstname.invalid"
+            >first name is required</mat-error
+          >
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            name="lastname"
+            placeholder="LastName"
+            ngModel
+            autocomplete="off"
+            minlength="3"
+            required
+            #lastname="ngModel"
+          />
+          <mat-error *ngIf="lastname.invalid">last name is required</mat-error>
+        </mat-form-field>
+        <br />
+        <h3>Your Gender:</h3>
+        <mat-radio-group name="gender" ngModel #gender="ngModel">
+          <mat-radio-button value="Male">Male</mat-radio-button>&nbsp;
+          <mat-radio-button value="Female">Female</mat-radio-button>&nbsp;
+          <mat-radio-button value="Other">Other</mat-radio-button>&nbsp;
+        </mat-radio-group>
+        <mat-error *ngIf="gender.invalid">gender is required</mat-error>
+        <br />
+        <br />
+        <button mat-raised-button color="primary" type="submit">Save</button>
+      </form>
+      <br />
+      <mat-divider></mat-divider>
+      <br />
+      <mat-card-header>
+        <mat-card-title>Email Address</mat-card-title>
+        <button mat-button>
+          <mat-icon style="font-size: 18px">edit</mat-icon>Edit
+        </button>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <br />
+      <form
+        #contactForm="ngForm"
+        name="contactForm"
+        (submit)="contact(contactForm)"
+      >
+        <mat-form-field appearance="outline" style="width: 300px">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            name="email"
+            ngModel
+            #email="ngModel"
+            required
+            minlength="8"
+            placeholder="abc@mail.com"
+          />
+          <mat-error *ngIf="email.invalid"
+            >Email is required</mat-error
+          > </mat-form-field
+        >&nbsp;
+        <button mat-raised-button color="primary" type="submit">Save</button>
+      </form>
+    </mat-card>
+  </div>
+</div>

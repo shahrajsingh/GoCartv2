@@ -28,7 +28,10 @@
   >
   <mat-divider></mat-divider>
   <mat-list-item class="shop-by-category-p">Help & Settings</mat-list-item>
-  <mat-list-item matRipple class="sidenav-list-item"
+  <mat-list-item
+    matRipple
+    class="sidenav-list-item"
+    [routerLink]="['/accountdetails', 'id']"
     >Your Account</mat-list-item
   >
   <mat-list-item matRipple class="sidenav-list-item" routerLink="/viewOrders"
