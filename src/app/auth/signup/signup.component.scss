@@ -48,14 +48,14 @@ mat-form-field {
   position: relative;
 }
 .imgprev {
-  width: 160px;
+  width: 180px;
   margin: auto;
-  height: 136px;
+  height: 135px;
 }
 img {
   height: 100%;
   width: 100%;
-  border-radius: 100%;
+  border-radius: 100px;
 }
 .icon-btn {
   position: absolute;
@@ -76,5 +76,10 @@ img {
     margin-top: -25px;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
+  }
+  .icon-btn {
+    position: absolute;
+    right: 25%;
+    bottom: 10%;
   }
 }
