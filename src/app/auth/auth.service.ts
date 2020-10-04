@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -8,10 +8,10 @@ import { Subject } from 'rxjs';
 export class AuthService {
   Authinticated: boolean = false;
   AuthListenerSub = new Subject();
-  constructor(private dialog: MatDialog) {}
+  constructor() {}
   Login(username: string, password: string) {
-    this.Authinticated = false;
-    this.AuthListenerSub.next(false);
+    this.Authinticated = true;
+    this.AuthListenerSub.next(true);
   }
   Signup() {}
   AuthListener() {

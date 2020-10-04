@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../auth.service';
 
@@ -11,7 +11,6 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   isAuthenticated: boolean = false;
-  mode: string = 'login';
   constructor(
     private authService: AuthService,
     public dialogRef: MatDialogRef<LoginComponent>,
@@ -21,7 +20,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.authService.AuthListener().subscribe((result: boolean) => {
       this.isAuthenticated = result;
-      console.log(this.isAuthenticated);
       if (this.isAuthenticated) {
         this.dialogRef.close();
       } else {
@@ -43,10 +41,7 @@ export class LoginComponent implements OnInit {
       }
     }
   }
-  openDialog() {
-    this.mode = 'signup';
-  }
-  changeMode() {
-    this.mode = 'login';
+  signup() {
+    this.dialogRef.close();
   }
 }

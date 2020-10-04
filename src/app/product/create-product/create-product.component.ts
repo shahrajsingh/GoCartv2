@@ -13,11 +13,6 @@ export class CreateProductComponent implements OnInit {
   imagePreview: string;
   isLoading: boolean = false;
   categories: string[] = ['Electronics', 'Education', 'Home Decor'];
-  questions: string[] = [
-    'What was you childhood name?',
-    'What was the name of your first pet?',
-    'What was the name of city you were born in?',
-  ];
   constructor(private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
@@ -42,9 +37,6 @@ export class CreateProductComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = reader.result as string;
-
-      let s: string = '';
-
       if (this.imagePreview.charAt(5) != 'i') {
         this.snackBar.open('Only .jpeg, .png file types supported ', 'Ok', {
           duration: 1000,

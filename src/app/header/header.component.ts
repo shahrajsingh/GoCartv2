@@ -1,11 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { LoginComponent } from '../auth/login/login.component';
+import { DialogService } from '../auth/dialog.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,7 +11,7 @@ import { LoginComponent } from '../auth/login/login.component';
 export class HeaderComponent implements OnInit {
   isAuthenticated: boolean = false;
 
-  constructor(private _snackBar: MatSnackBar, public dialog: MatDialog) {}
+  constructor(private _snackBar: MatSnackBar, private dialog: DialogService) {}
 
   ngOnInit(): void {}
   openSnackBar() {
@@ -25,13 +22,6 @@ export class HeaderComponent implements OnInit {
     });
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: '600px',
-      data: {},
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
+    this.dialog.openDialog();
   }
 }

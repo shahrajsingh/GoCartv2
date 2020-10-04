@@ -1,52 +1,131 @@
-<!--
-
--->
 <div class="signup-container">
-  <div class="brand">
-    <h1 class="brand-name">GoCart</h1>
-  </div>
-  <div class="signupcontents">
-    <div class="signupbanner"><h2 class="heading">Signup</h2></div>
-    <div class="signupcredentials">
-      <form
-        #signupForm="ngForm"
-        name="signupForm"
-        (submit)="Signup(signupForm)"
-      >
-        <mat-form-field appearance="outline" class="formfield">
-          <mat-label>Username</mat-label>
+  <mat-card class="signup">
+    <div class="header">
+      <p>Sign Up</p>
+      <h3>Please fill in this form to create an account.</h3>
+    </div>
+    <mat-card class="form">
+      <form #signupForm="ngForm" (submit)="Signup(signupForm)">
+        <div class="profile-img">
+          <div class="imgprev">
+            <img [src]="imagePreview" />
+          </div>
+          <button
+            class="icon-btn"
+            (click)="filePicker.click()"
+            type="button"
+            mat-mini-fab
+          >
+            <mat-icon>add</mat-icon>
+          </button>
           <input
-            matInput
-            name="username"
-            #username="ngModel"
-            ngModel
+            class="filepick"
+            type="file"
+            #filePicker
+            (change)="onImagePicked($event)"
+          />
+        </div>
+        <mat-divider></mat-divider>
+
+        <h2>Personal Details</h2>
+        <mat-form-field class="lft" appearance="outline">
+          <mat-label>First Name:</mat-label>
+          <input
             required
             minlength="3"
+            ngModel
+            #FirstName="ngModel"
             type="text"
-            autocomplete="off"
-            placeholder="e.g:- JohnDoe"
+            matInput
+            name="FirstName"
+            placeholder="e.g:- John"
           />
-          <mat-error *ngIf="username.invalid">Username is Required</mat-error>
+          <mat-error *ngIf="FirstName.invalid">Name is required</mat-error>
         </mat-form-field>
-        <mat-form-field appearance="outline" class="formfield">
-          <mat-label>Password</mat-label>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name:</mat-label>
+          <input
+            required
+            minlength="3"
+            ngModel
+            #LastName="ngModel"
+            type="text"
+            matInput
+            name="LastName"
+            placeholder="e.g:- Doe"
+          />
+          <mat-error *ngIf="LastName.invalid">Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="lft" appearance="outline">
+          <mat-label>Email</mat-label>
           <input
             matInput
-            name="Password"
-            #Password="ngModel"
+            name="email"
             ngModel
+            #email="ngModel"
+            type="email"
+            required
+          />
+          <mat-error *ngIf="email.invalid">email is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Date of Birth</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker1"
+            name="Date"
+            #Date="ngModel"
+            ngModel
+            required
+            placeholder="dd/mm/yyyy"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-label>Gender: </mat-label>
+        <mat-radio-group required ngModel name="gender">
+          <mat-radio-button value="male">Male &nbsp;</mat-radio-button>
+          <mat-radio-button value="female">Female &nbsp;</mat-radio-button>
+          <mat-radio-button value="other">Other &nbsp;</mat-radio-button>
+        </mat-radio-group>
+        <mat-divider style="margin-top: 8px"></mat-divider>
+        <br />
+        <br />
+        <h2>Password</h2>
+        <mat-form-field class="lft" appearance="outline">
+          <mat-label>Choose Password</mat-label>
+          <input
             type="password"
             required
-            minlength="3"
-            placeholder="e.g:- 12345678"
+            matInput
+            name="pass"
+            ngModel
+            #pass="ngModel"
+            minlength="8"
+            placeholder="Minium 8 characters"
           />
-          <mat-error *ngIf="Password.invalid">Password is Required</mat-error>
+          <mat-error *ngIf="pass.invalid">Password is required</mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" class="btn">Signup</button>
-        <br /><br />
-        <mat-divider></mat-divider>
-        <h3 class="subheading">Don't have a GoCart account?</h3>
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            type="password"
+            required
+            matInput
+            name="cpass"
+            ngModel
+            #cpass="ngModel"
+            minlength="8"
+            placeholder="Minium 8 characters"
+          />
+          <mat-error *ngIf="cpass.invalid">Password is required</mat-error>
+        </mat-form-field>
+        <button class="btn" mat-raised-button color="primary">Sign Up</button>
       </form>
-    </div>
-  </div>
+    </mat-card>
+  </mat-card>
 </div>

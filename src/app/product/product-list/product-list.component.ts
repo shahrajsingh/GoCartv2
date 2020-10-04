@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
-import { fromEvent } from 'rxjs/internal/observable/fromEvent';
-import { Subscription } from 'rxjs/internal/Subscription';
+import { fromEvent, Observable, Subscription } from 'rxjs';
+
 import { Product } from 'src/app/models/Product.model';
 
 @Component({
@@ -80,7 +79,6 @@ export class ProductListComponent implements OnInit {
     this.resizeSubscription = this.resizeObservable.subscribe((evt) => {
       const x = window.innerWidth;
       const str: string = '' + x / 250;
-      console.log(str);
       if (x < 420) {
         this.colSize = parseInt(str) + 1;
       } else {

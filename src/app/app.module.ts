@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
@@ -129,6 +130,7 @@ import { ProductCardComponent } from './product/product-card/product-card.compon
     MatPaginatorModule,
     MatBadgeModule,
     MatRippleModule,
+    MatNativeDateModule,
   ],
   providers: [],
   entryComponents: [LoginComponent, SignupComponent],
