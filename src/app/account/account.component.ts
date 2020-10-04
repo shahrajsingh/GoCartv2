@@ -19,13 +19,19 @@ export class AccountComponent implements OnInit {
       'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=333&q=80',
     password: 'asd',
     Age: 19,
-    Gender: 'male',
+    Gender: 'Male',
   };
+  editpersonal: boolean = false;
+  editemail: boolean = false;
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
-  personalinfoform(form: NgForm) {}
-  contact(form:NgForm){
-
+  personaledit() {
+    this.editpersonal = !this.editpersonal;
   }
+  emailedit() {
+    this.editemail = !this.editemail;
+  }
+  personalinfoform(form: NgForm) {}
+  contact(form: NgForm) {}
 }

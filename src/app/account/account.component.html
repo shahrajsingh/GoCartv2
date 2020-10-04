@@ -27,8 +27,11 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title>Personal Information</mat-card-title>
-        <button mat-button>
+        <button mat-button (click)="personaledit()" *ngIf="!editpersonal">
           <mat-icon style="font-size: 18px">edit</mat-icon>Edit
+        </button>
+        <button mat-button (click)="personaledit()" *ngIf="editpersonal">
+          Cancel
         </button>
       </mat-card-header>
       <mat-divider></mat-divider>
@@ -42,36 +45,53 @@
           <mat-label>First Name</mat-label>
           <input
             matInput
+            [(ngModel)]="user.FirstName"
             name="firstname"
             placeholder="FirstName"
-            ngModel
             autocomplete="off"
             #firstname="ngModel"
             minlength="3"
             required
+            *ngIf="editpersonal"
           />
-          <mat-error *ngIf="firstname.invalid"
-            >first name is required</mat-error
-          >
+          <input
+            matInput
+            [(ngModel)]="user.FirstName"
+            name="temp"
+            disabled
+            *ngIf="!editpersonal"
+          />
         </mat-form-field>
         &nbsp;
         <mat-form-field>
           <mat-label>Last Name</mat-label>
           <input
             matInput
+            [(ngModel)]="user.LastName"
+            name="lastname"
+            disabled
+            *ngIf="!editpersonal"
+          />
+          <input
+            matInput
+            [(ngModel)]="user.LastName"
             name="lastname"
             placeholder="LastName"
-            ngModel
             autocomplete="off"
             minlength="3"
             required
             #lastname="ngModel"
+            *ngIf="editpersonal"
           />
-          <mat-error *ngIf="lastname.invalid">last name is required</mat-error>
         </mat-form-field>
         <br />
         <h3>Your Gender:</h3>
-        <mat-radio-group name="gender" ngModel #gender="ngModel">
+        <mat-radio-group
+          [disabled]="!editpersonal"
+          name="gender"
+          [(ngModel)]="user.Gender"
+          #gender="ngModel"
+        >
           <mat-radio-button value="Male">Male</mat-radio-button>&nbsp;
           <mat-radio-button value="Female">Female</mat-radio-button>&nbsp;
           <mat-radio-button value="Other">Other</mat-radio-button>&nbsp;
@@ -79,15 +99,25 @@
         <mat-error *ngIf="gender.invalid">gender is required</mat-error>
         <br />
         <br />
-        <button mat-raised-button color="primary" type="submit">Save</button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          *ngIf="editpersonal"
+        >
+          Save
+        </button>
       </form>
       <br />
       <mat-divider></mat-divider>
       <br />
       <mat-card-header>
         <mat-card-title>Email Address</mat-card-title>
-        <button mat-button>
+        <button mat-button (click)="emailedit()" *ngIf="!editemail">
           <mat-icon style="font-size: 18px">edit</mat-icon>Edit
+        </button>
+        <button mat-button (click)="emailedit()" *ngIf="editemail">
+          Cancel
         </button>
       </mat-card-header>
       <mat-divider></mat-divider>
@@ -102,18 +132,33 @@
           <input
             matInput
             name="email"
-            ngModel
             #email="ngModel"
             required
             minlength="8"
             placeholder="abc@mail.com"
+            *ngIf="editemail"
+            [(ngModel)]="user.EmailAddress"
           />
-          <mat-error *ngIf="email.invalid"
-            >Email is required</mat-error
-          > </mat-form-field
+          <input
+            [(ngModel)]="user.EmailAddress"
+            matInput
+            name="email"
+            disabled
+            *ngIf="!editemail"
+          /> </mat-form-field
         >&nbsp;
-        <button mat-raised-button color="primary" type="submit">Save</button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          *ngIf="editemail"
+        >
+          Save
+        </button>
       </form>
+      <mat-divider> </mat-divider>
+      <br />
+      <button mat-button color="accent">Change Password</button>
     </mat-card>
   </div>
 </div>

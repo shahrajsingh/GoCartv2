@@ -12,7 +12,7 @@ import { LoginComponent } from '../auth/login/login.component';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  isAuthenticated: boolean = true;
+  isAuthenticated: boolean = false;
 
   constructor(private _snackBar: MatSnackBar, public dialog: MatDialog) {}
 

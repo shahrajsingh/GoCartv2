@@ -32,7 +32,7 @@ export class CarousalComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.showSlides();
-    }, 3000);
+    }, 5000);
   }
   onPreviousClick() {
     const previous = this.currentSlide - 1;
@@ -55,6 +55,6 @@ export class CarousalComponent implements OnInit {
     }
     setTimeout(() => {
       this.showSlides();
-    }, 3000);
+    }, 5000);
   }
 }
