@@ -21,7 +21,8 @@ export class SignupComponent implements OnInit {
       this.imagePreview = reader.result as string;
       if (this.imagePreview.charAt(5) != 'i') {
         this.snackBar.open('Only .jpeg, .png file types supported ', 'Ok', {
-          duration: 1000,
+          duration: 2000,
+          verticalPosition: 'top',
         });
       }
     };

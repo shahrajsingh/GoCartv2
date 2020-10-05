@@ -39,6 +39,7 @@
             matInput
             name="FirstName"
             placeholder="e.g:- John"
+            autocomplete="off"
           />
           <mat-error *ngIf="FirstName.invalid">Name is required</mat-error>
         </mat-form-field>
@@ -54,6 +55,7 @@
             matInput
             name="LastName"
             placeholder="e.g:- Doe"
+            autocomplete="off"
           />
           <mat-error *ngIf="LastName.invalid">Name is required</mat-error>
         </mat-form-field>
@@ -79,6 +81,7 @@
             ngModel
             required
             placeholder="dd/mm/yyyy"
+            autocomplete="off"
           />
           <mat-datepicker-toggle
             matSuffix
@@ -107,6 +110,7 @@
             #pass="ngModel"
             minlength="8"
             placeholder="Minium 8 characters"
+            autocomplete="off"
           />
           <mat-error *ngIf="pass.invalid">Password is required</mat-error>
         </mat-form-field>
@@ -121,6 +125,7 @@
             #cpass="ngModel"
             minlength="8"
             placeholder="Minium 8 characters"
+            autocomplete="off"
           />
           <mat-error *ngIf="cpass.invalid">Password is required</mat-error>
         </mat-form-field>
