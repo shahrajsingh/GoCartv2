@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const express = require("express");
 const userRoute = require("./routes/user");
-
+const productRoute = require("./routes/product");
 const app = express();
+
 console.log("connecting");
 let connect = false;
 let connectedIn = 0;
@@ -17,6 +18,7 @@ function connected() {
     setTimeout(connected, 500);
   }
 }
+
 mongoose
   .connect(
     "mongodb+srv://Shahraj:" +
@@ -31,4 +33,5 @@ mongoose
   .catch((error) => {
     console.log("error while establishing connection", error);
   });
+
 module.exports = app;
