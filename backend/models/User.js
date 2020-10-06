@@ -9,7 +9,13 @@ const userSchema = mongoose.Schema({
   gender: { type: String, required: true },
   address: [{ type: String, required: true }],
   image: { type: String, required: false },
-  email: { type: String, required: true, unique },
+  email: { type: String, required: true, unique: true },
+  cart: { type: [{ ProductId: String, qty: Number }] },
+  orders: {
+    type: [
+      { OrderId: { type: mongoose.Schema.Types.ObjectId, ref: "Orders" } },
+    ],
+  },
 });
 userSchema.plugin(validator);
 
