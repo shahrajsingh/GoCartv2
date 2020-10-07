@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
@@ -131,8 +132,9 @@ import { ProductCardComponent } from './product/product-card/product-card.compon
     MatBadgeModule,
     MatRippleModule,
     MatNativeDateModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpClientModule],
   entryComponents: [LoginComponent, SignupComponent],
   bootstrap: [AppComponent],
 })

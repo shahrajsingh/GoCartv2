@@ -10,7 +10,15 @@ const userSchema = mongoose.Schema({
   address: [{ type: String, required: true }],
   image: { type: String, required: false },
   email: { type: String, required: true, unique: true },
-  cart: { type: [{ ProductId: String, qty: Number }] },
+  wishlisted: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
+  cart: {
+    type: [
+      {
+        ProductId: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
+        qty: Number,
+      },
+    ],
+  },
   orders: {
     type: [
       { OrderId: { type: mongoose.Schema.Types.ObjectId, ref: "Orders" } },

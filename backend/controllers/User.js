@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 exports.signUp = (req, res, next) => {
+  console.log(req.body.password, req.body.email);
   bcrypt
     .hash(req.body.password, 10)
     .then((hash) => {
@@ -29,6 +30,7 @@ exports.signUp = (req, res, next) => {
     });
 };
 exports.Login = (res, req, next) => {
+  console.log(req.body.email);
   let fetchedUser;
   User.findOne({ email: req.body.email })
     .then((user) => {
@@ -59,9 +61,12 @@ exports.Login = (res, req, next) => {
           { expiresIn: "1h" }
         );
         res.status(200).json({
-          token: token,
-          expiresIn: 3600,
-          userId: fetchedUser._id,
+          message: "authentication successfull.",
+          result: {
+            token: token,
+            expiresIn: 3600,
+            userId: fetchedUser._id,
+          },
         });
       }
     })
