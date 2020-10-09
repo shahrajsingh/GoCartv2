@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 exports.signUp = (req, res, next) => {
-  console.log(req.body);
+  const url = req.protocol + "://" + req.get("host");
   bcrypt
     .hash(req.body.Password, 10)
     .then((hash) => {
@@ -14,8 +14,13 @@ exports.signUp = (req, res, next) => {
         Gender: req.body.Gender,
         Email: req.body.Email,
         Password: hash,
-        Image: req.body.Image,
+        Image: "",
       });
+      if (req.body.Image === "https://picsum.photos/200?grayscale") {
+        user.Image = req.body.Image;
+      } else {
+        user.Image = url + "/images/" + req.file.filename;
+      }
       user
         .save()
         .then((result) => {
