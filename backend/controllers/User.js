@@ -3,34 +3,39 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 exports.signUp = (req, res, next) => {
-  console.log(req.body.password, req.body.email);
   bcrypt
-    .hash(req.body.password, 10)
+    .hash(req.body.Password, 10)
     .then((hash) => {
       const user = new User({
-        email: req.body.email,
-        password: hash,
+        FirstName: req.body.FirstName,
+        LastName: req.body.LastName,
+        DoB: req.body.DoB,
+        Gender: req.body.Gender,
+        Email: req.body.Email,
+        Password: hash,
       });
+      user
+        .save()
+        .then((result) => {
+          res.status(201).json({ message: "user created.", result: result });
+        })
+        .catch((error) => {
+          console.log(error);
+          res.status(500).json({
+            message: "error occured while creating user at 27",
+            result: error,
+          });
+        });
     })
     .catch((error) => {
+      console.log(error);
       res.status(500).json({
         message: "an error has occured while hashing password",
         result: error,
       });
     });
-  User.save()
-    .then((result) => {
-      res.status(201).json({ message: "user created.", result: result });
-    })
-    .catch((error) => {
-      res.status(500).json({
-        message: "error occured while creating user at 27",
-        result: error,
-      });
-    });
 };
-exports.Login = (res, req, next) => {
-  console.log(req.body.email);
+exports.Login = (req, res, next) => {
   let fetchedUser;
   User.findOne({ email: req.body.email })
     .then((user) => {
@@ -71,8 +76,9 @@ exports.Login = (res, req, next) => {
       }
     })
     .catch((error) => {
-      res
-        .status(401)
-        .json({ message: "an error occured at 68", result: error });
+      console.log(error);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 };

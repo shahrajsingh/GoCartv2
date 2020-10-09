@@ -13,11 +13,11 @@ export class AccountComponent implements OnInit {
     _id: 'sdaf12',
     FirstName: 'shahraj',
     LastName: 'singh',
-    Address: ['punjab'],
-    EmailAddress: 'abc@gmail.com',
+    Address: 'punjab',
+    Email: 'abc@gmail.com',
     Image:
       'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=333&q=80',
-    password: 'asd',
+    Password: 'asd',
     DoB: 19,
     Gender: 'Male',
   };

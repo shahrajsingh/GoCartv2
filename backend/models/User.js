@@ -2,16 +2,16 @@ const mongoose = require("mongoose");
 const validator = require("mongoose-unique-validator");
 
 const userSchema = mongoose.Schema({
-  fisrtName: { type: String, required: true },
-  password: { type: String, required: true },
+  FirstName: { type: String, required: true },
+  Password: { type: String, required: true },
   DoB: { type: String, required: true },
-  lastName: { type: String, required: true },
-  gender: { type: String, required: true },
-  address: [{ type: String, required: true }],
-  image: { type: String, required: false },
-  email: { type: String, required: true, unique: true },
-  wishlisted: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
-  cart: {
+  LastName: { type: String, required: true },
+  Gender: { type: String, required: true },
+  Address: [{ type: String, required: true }],
+  Image: { type: String },
+  Email: { type: String, required: true, unique: true },
+  Wishlisted: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
+  Cart: {
     type: [
       {
         ProductId: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema({
       },
     ],
   },
-  orders: {
+  Orders: {
     type: [
       { OrderId: { type: mongoose.Schema.Types.ObjectId, ref: "Orders" } },
     ],

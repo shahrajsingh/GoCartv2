@@ -32,7 +32,7 @@
           <mat-label>First Name:</mat-label>
           <input
             required
-            minlength="3"
+            minlength="2"
             ngModel
             #FirstName="ngModel"
             type="text"
@@ -48,7 +48,7 @@
           <mat-label>Last Name:</mat-label>
           <input
             required
-            minlength="3"
+            minlength="2"
             ngModel
             #LastName="ngModel"
             type="text"
@@ -63,7 +63,7 @@
           <mat-label>Email</mat-label>
           <input
             matInput
-            name="email"
+            name="Email"
             ngModel
             #email="ngModel"
             type="email"
@@ -76,7 +76,7 @@
           <input
             matInput
             [matDatepicker]="picker1"
-            name="Date"
+            name="DoB"
             #Date="ngModel"
             ngModel
             required
@@ -89,8 +89,22 @@
           ></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label>Address</mat-label>
+          <input
+            type="text"
+            required
+            ngModel
+            #Address="ngModel"
+            name="Address"
+            placeholder="e.g:- 123 Main Street, New York, NY 10030"
+            matInput
+            minlength="8"
+          />
+          <mat-error *ngIf="Address.invalid">Address is required</mat-error>
+        </mat-form-field>
         <mat-label>Gender: </mat-label>
-        <mat-radio-group required ngModel name="gender">
+        <mat-radio-group required ngModel name="Gender">
           <mat-radio-button value="male">Male &nbsp;</mat-radio-button>
           <mat-radio-button value="female">Female &nbsp;</mat-radio-button>
           <mat-radio-button value="other">Other &nbsp;</mat-radio-button>
@@ -105,7 +119,7 @@
             type="password"
             required
             matInput
-            name="pass"
+            name="Password"
             ngModel
             #pass="ngModel"
             minlength="8"
@@ -117,10 +131,10 @@
         <mat-form-field appearance="outline">
           <mat-label>Confirm Password</mat-label>
           <input
-            type="password"
+            type="Password"
             required
             matInput
-            name="cpass"
+            name="Cpass"
             ngModel
             #cpass="ngModel"
             minlength="8"

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { AuthData } from '../models/auth-data.model';
 import { Subject } from 'rxjs';
+import { User } from '../models/user.model';
 
 const BACKEND_URL = environment.apiUrl + '/user';
 
@@ -28,6 +29,7 @@ export class AuthService {
       email: email,
       password: password,
     };
+
     this.http
       .post<{
         message: string;
@@ -35,6 +37,7 @@ export class AuthService {
       }>(BACKEND_URL + '/login', authData)
       .subscribe(
         (res) => {
+          console.log(res);
           const token = res.result.token;
           this.token = token;
           if (token) {
@@ -51,13 +54,13 @@ export class AuthService {
           }
         },
         (error) => {
+          console.log(error.message);
           this.AuthListenerSub.next(false);
         }
       );
   }
 
-  Signup(email: string, password: string) {
-    const authData: AuthData = { email: email, password: password };
+  Signup(authData: User) {
     this.http
       .post<{ message: string; result: any }>(BACKEND_URL + '/signup', authData)
       .subscribe(

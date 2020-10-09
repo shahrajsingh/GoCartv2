@@ -1,11 +1,11 @@
 export interface User {
   FirstName: string;
   LastName: string;
-  EmailAddress: string;
-  password: string;
+  Email: string;
+  Password: string;
   DoB: number;
   _id: string;
-  Image: string;
+  Image: any;
   Gender: string;
-  Address: string[];
+  Address: string;
 }

@@ -8,4 +8,8 @@ router.post("", checkAuth, file, productController.createProduct);
 router.delete("/:id", checkAuth, productController.deleteProduct);
 router.put("/:id", checkAuth, productController.updateProduct);
 
+router.get("", (req, res, next) => {
+  console.log("get request");
+  res.send("req recieved");
+});
 module.exports = router;
