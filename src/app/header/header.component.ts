@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../auth/auth.service';
 import { DialogService } from '../auth/dialog.service';
 
 @Component({
@@ -11,9 +12,18 @@ import { DialogService } from '../auth/dialog.service';
 export class HeaderComponent implements OnInit {
   isAuthenticated: boolean = false;
 
-  constructor(private _snackBar: MatSnackBar, private dialog: DialogService) {}
+  constructor(
+    private _snackBar: MatSnackBar,
+    private dialog: DialogService,
+    private authService: AuthService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isAuthenticated = this.authService.getIsAuth();
+    this.authService.AuthListener().subscribe((result: boolean) => {
+      this.isAuthenticated = result;
+    });
+  }
   openSnackBar() {
     this._snackBar.open('Please Login!', '', {
       duration: 700,
@@ -23,5 +33,8 @@ export class HeaderComponent implements OnInit {
   }
   openDialog(): void {
     this.dialog.openDialog();
+  }
+  logOut() {
+    this.authService.logout();
   }
 }

@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const verifaction_String = "qazxswedcrtyujhgfvbnmkiopl,.;[]'/7895201364";
+const verifaction_String = process.env.JWT_KEY;
 module.exports = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];

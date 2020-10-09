@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 exports.signUp = (req, res, next) => {
+  console.log(req.body);
   bcrypt
     .hash(req.body.Password, 10)
     .then((hash) => {
@@ -13,6 +14,7 @@ exports.signUp = (req, res, next) => {
         Gender: req.body.Gender,
         Email: req.body.Email,
         Password: hash,
+        Image: req.body.Image,
       });
       user
         .save()
@@ -37,7 +39,8 @@ exports.signUp = (req, res, next) => {
 };
 exports.Login = (req, res, next) => {
   let fetchedUser;
-  User.findOne({ email: req.body.email })
+
+  User.findOne({ Email: req.body.email })
     .then((user) => {
       if (!user) {
         return res
@@ -45,7 +48,7 @@ exports.Login = (req, res, next) => {
           .json({ message: "user not found!", result: "no record!" });
       } else {
         fetchedUser = user;
-        return bcrypt.compare(req.body.password, user.password);
+        return bcrypt.compare(req.body.password, user.Password);
       }
     })
     .catch((error) => {
@@ -55,13 +58,16 @@ exports.Login = (req, res, next) => {
       });
     })
     .then((result) => {
+      if (fetchedUser == null || fetchedUser == undefined) {
+        return;
+      }
       if (!result) {
         return res
           .status(401)
           .json({ message: "Invalid authentication credentials!", result: "" });
       } else {
         const token = jwt.sign(
-          { email: fetchedUser.email, userId: fetchedUser._id },
+          { Email: fetchedUser.Email, userId: fetchedUser._id },
           process.env.JWT_KEY,
           { expiresIn: "1h" }
         );

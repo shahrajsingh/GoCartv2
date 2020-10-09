@@ -10,7 +10,7 @@
   <div class="logincredentials">
     <form #loginForm="ngForm" name="loginForm" (submit)="Login(loginForm)">
       <mat-form-field appearance="outline" class="formfield">
-        <mat-label>Username</mat-label>
+        <mat-label>Username or Email</mat-label>
         <input
           matInput
           name="username"
@@ -19,7 +19,7 @@
           required
           minlength="3"
           type="text"
-          placeholder="e.g:- JohnDoe"
+          placeholder="e.g:- JohnDoe@email.com"
           autocomplete="off"
         />
         <mat-error *ngIf="username.invalid">Username is Required</mat-error>

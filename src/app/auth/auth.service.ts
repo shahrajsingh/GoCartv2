@@ -29,7 +29,7 @@ export class AuthService {
       email: email,
       password: password,
     };
-
+    let msg: string;
     this.http
       .post<{
         message: string;
@@ -37,7 +37,6 @@ export class AuthService {
       }>(BACKEND_URL + '/login', authData)
       .subscribe(
         (res) => {
-          console.log(res);
           const token = res.result.token;
           this.token = token;
           if (token) {
@@ -51,13 +50,16 @@ export class AuthService {
             );
             this.saveAuthData(token, expirationDate, this.userId);
             this.router.navigate(['/']);
+            msg = res.message;
           }
         },
         (error) => {
-          console.log(error.message);
+          msg = error.error.message;
+
           this.AuthListenerSub.next(false);
         }
       );
+    return msg;
   }
 
   Signup(authData: User) {
@@ -104,6 +106,7 @@ export class AuthService {
     clearTimeout(this.tokenTimer);
     this.clearAuthData();
     this.router.navigate(['/']);
+    window.location.reload();
   }
 
   private saveAuthData(token: string, expirationDate: Date, userId: string) {

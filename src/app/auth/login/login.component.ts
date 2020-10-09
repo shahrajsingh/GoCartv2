@@ -11,6 +11,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   isAuthenticated: boolean = false;
+  message: string = 'Incorrect Details';
   constructor(
     private authService: AuthService,
     public dialogRef: MatDialogRef<LoginComponent>,
@@ -22,8 +23,13 @@ export class LoginComponent implements OnInit {
       this.isAuthenticated = result;
       if (this.isAuthenticated) {
         this.dialogRef.close();
+        this.snackBar.open('Login Successfull', 'ok', {
+          duration: 1000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });
       } else {
-        this.snackBar.open('Incorrect Details', 'ok', {
+        this.snackBar.open(this.message, 'ok', {
           duration: 2000,
           horizontalPosition: 'center',
           verticalPosition: 'top',
@@ -36,6 +42,7 @@ export class LoginComponent implements OnInit {
       return;
     } else {
       this.authService.Login(Form.value.username, Form.value.password);
+
       if (!this.isAuthenticated) {
         Form.resetForm();
       }

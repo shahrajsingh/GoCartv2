@@ -51,7 +51,12 @@ export class SignupComponent implements OnInit {
       }
       let DoB: number = form.value.DoB;
       let _id: string = null;
-      let Image = this.file;
+      let Image;
+      if (this.file != null || this.file != undefined) {
+        Image = this.file;
+      } else {
+        Image = this.imagePreview;
+      }
       let Gender: string = this.capitalize(form.value.Gender);
       if (Gender == undefined || Gender == null) {
         this.openSnackBar('Please select a Gender');

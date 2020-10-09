@@ -2,7 +2,9 @@
   <div class="brand-name" routerLink="/">GoCart</div>
   <div class="search-bar"><app-search></app-search></div>
   <div class="misc">
-    <button mat-button class="btn" *ngIf="isAuthenticated">Logout</button>
+    <button mat-button class="btn" *ngIf="isAuthenticated" (click)="logOut()">
+      Logout
+    </button>
     <button
       mat-button
       class="btn"

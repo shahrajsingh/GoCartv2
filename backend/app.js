@@ -86,7 +86,7 @@ function connected() {
 mongoose
   .connect(
     "mongodb+srv://Shahraj:" +
-      "az12sx34" +
+      process.env.MONGO_ATLAS_PW +
       "@cluster0.9kpzp.gcp.mongodb.net/GoCart?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
   )
@@ -95,6 +95,7 @@ mongoose
     console.log("Connection Successful.(Connected in:-", connectedIn, "ms)");
   })
   .catch((error) => {
+    connect = true;
     console.log("error while establishing connection", error);
   });
 
