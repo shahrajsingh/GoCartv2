@@ -16,11 +16,7 @@ exports.signUp = (req, res, next) => {
         Password: hash,
         Image: "",
       });
-      if (req.body.Image === "https://picsum.photos/200?grayscale") {
-        user.Image = req.body.Image;
-      } else {
-        user.Image = url + "/images/" + req.file.filename;
-      }
+
       user
         .save()
         .then((result) => {
