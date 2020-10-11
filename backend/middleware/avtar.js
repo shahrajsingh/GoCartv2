@@ -1,9 +1,9 @@
 const multer = require("multer");
-console.log(" in avatar");
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images");
-    console.log(" in avatar");
+    console.log(" in avatar at 6");
   },
   filename: (req, file, cb) => {
     const name = file.originalname.toLowerCase().split(" ").join("-");
