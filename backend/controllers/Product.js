@@ -9,36 +9,36 @@ exports.getProduct = (req, res, next) => {
     productQuery.skip(pageSize * (currentPage - 1)).limit(pageSize);
   }
   productQuery
-    .then(documents => {
+    .then((documents) => {
       fetchedProducts = documents;
       return Product.count();
     })
-    .then(count => {
+    .then((count) => {
       res.status(200).json({
         message: "Posts fetched successfully!",
         product: fetchedProducts,
-        maxProduct: count
+        maxProduct: count,
       });
     })
-    .catch(error => {
+    .catch((error) => {
       res.status(500).json({
-        message: "Fetching posts failed!"
+        message: "Fetching posts failed!",
       });
     });
 };
 
 exports.getProduct = (req, res, next) => {
   Product.findById(req.params.id)
-    .then(product => {
+    .then((product) => {
       if (product) {
         res.status(200).json(product);
       } else {
         res.status(404).json({ message: "Product not found!" });
       }
     })
-    .catch(error => {
+    .catch((error) => {
       res.status(500).json({
-        message: "Fetching product failed!"
+        message: "Fetching product failed!",
       });
     });
 };
@@ -59,7 +59,8 @@ exports.createProduct = (req, res, next) => {
     itemsLeft: req.body.itemsLeft,
     maxOrder: req.body.maxOrder,
   });
-  product.save()
+  product
+    .save()
     .then((createdProduct) => {
       res.status(201).json({
         message: "product added successfully",
@@ -83,7 +84,7 @@ exports.updateProduct = (req, res, next) => {
     imagePath = url + "/images/" + req.file.filename;
   }
   const product = new Product({
-    _id = req.body._id,
+    //_id = req.body._id,
     name: req.body.name,
     category: req.body.category,
     price: req.body.price,
@@ -94,17 +95,20 @@ exports.updateProduct = (req, res, next) => {
     itemsLeft: req.body.itemsLeft,
     maxOrder: req.body.maxOrder,
   });
-  Product.updateOne({ _id: req.params.id, sellerId: req.userData.userId }, product)
-    .then(result => {
+  Product.updateOne(
+    { _id: req.params.id, sellerId: req.userData.userId },
+    product
+  )
+    .then((result) => {
       if (result.n > 0) {
         res.status(200).json({ message: "Update successful!" });
       } else {
         res.status(401).json({ message: "Not authorized!" });
       }
     })
-    .catch(error => {
+    .catch((error) => {
       res.status(500).json({
-        message: "Couldn't udpate post!"
+        message: "Couldn't udpate post!",
       });
     });
 };

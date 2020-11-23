@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "GoCart"
+  "defaultProject": "GoCart",
+  "cli": {
+    "analytics": "41273b40-91df-4717-94a7-0236a0b3c5d0"
+  }
 }
