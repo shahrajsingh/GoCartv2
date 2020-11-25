@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/models/user.model';
+import { SnackbarService } from 'src/app/snackbar.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -13,20 +13,20 @@ export class SignupComponent implements OnInit {
   imagePreview: string = 'https://picsum.photos/200?grayscale';
   file: File;
   constructor(
-    private snackBar: MatSnackBar,
-    private authService: AuthService
+    private authService: AuthService,
+    private snackBarService: SnackbarService
   ) {}
 
   ngOnInit(): void {}
   Signup(form: NgForm) {
     if (form.invalid) {
-      this.openSnackBar('Please fill the entire form');
+      this.snackBarService.openSnackBar('Please fill the entire form');
       return;
     } else {
       let FirstName: string = this.capitalize(form.value.FirstName);
       let LastName: string = this.capitalize(form.value.LastName);
       if (FirstName.length < 2 || LastName.length < 2) {
-        this.openSnackBar('Name must be 2 characters long');
+        this.snackBarService.openSnackBar('Name must be 2 characters long');
         return;
       }
       let Email: string = form.value.Email;
@@ -35,18 +35,20 @@ export class SignupComponent implements OnInit {
           Email
         )
       ) {
-        this.openSnackBar('Enter a valid Email');
+        this.snackBarService.openSnackBar('Enter a valid Email');
         return;
       }
       let Password: string = form.value.Password;
       if (!/^[a-zA-Z0-9]*$/.test(Password)) {
-        this.openSnackBar('Password should contain alphabets and numbers');
+        this.snackBarService.openSnackBar(
+          'Password should contain alphabets and numbers'
+        );
         return;
       } else if (Password.length < 8) {
-        this.openSnackBar('Password must be 8 chracters long');
+        this.snackBarService.openSnackBar('Password must be 8 chracters long');
         return;
       } else if (!(Password === form.value.Cpass)) {
-        this.openSnackBar('Passwords does not match');
+        this.snackBarService.openSnackBar('Passwords does not match');
         return;
       }
       let DoB: number = form.value.DoB;
@@ -59,12 +61,12 @@ export class SignupComponent implements OnInit {
       }
       let Gender: string = this.capitalize(form.value.Gender);
       if (Gender == undefined || Gender == null) {
-        this.openSnackBar('Please select a Gender');
+        this.snackBarService.openSnackBar('Please select a Gender');
         return;
       }
       let Address: string = form.value.Address;
       if (Address.length < 8) {
-        this.openSnackBar('enter a valid addresss');
+        this.snackBarService.openSnackBar('enter a valid addresss');
         return;
       }
       const SignUpData: User = {
@@ -88,18 +90,14 @@ export class SignupComponent implements OnInit {
     reader.onload = () => {
       this.imagePreview = reader.result as string;
       if (this.imagePreview.charAt(5) != 'i') {
-        this.openSnackBar('Only .jpeg, .png file types supported ');
+        this.snackBarService.openSnackBar(
+          'Only .jpg, .jpeg, .png file types supported '
+        );
       }
     };
     reader.readAsDataURL(this.file);
   }
 
-  openSnackBar(message: string) {
-    this.snackBar.open(message, 'Ok', {
-      duration: 2000,
-      verticalPosition: 'top',
-    });
-  }
   capitalize(str: string) {
     let res = str[0].toUpperCase();
     for (let a = 1; a < str.length; a++) {
