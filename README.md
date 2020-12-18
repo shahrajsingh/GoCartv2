@@ -5,7 +5,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ##Demo Link
 
 https://gocart.netlify.app
-test change
 
 ## Development server
 
