@@ -11,6 +11,7 @@ import { AuthService } from '../auth.service';
 })
 export class SignupComponent implements OnInit {
   imagePreview: string = 'https://picsum.photos/200?grayscale';
+
   file: File;
   constructor(
     private authService: AuthService,
